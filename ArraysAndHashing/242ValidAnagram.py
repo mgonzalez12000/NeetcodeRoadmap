@@ -6,7 +6,7 @@ An ANAGRAM is a word or phrase formed by rearranging the
 letters of a different word or phrase, typically using
 all the original letters exactly one.
 
-Example 1: inpu: s = 'anagram', t - 'nagaram'
+Example 1: input: s = 'anagram', t = 'nagaram'
            output: true
 
 Example 2: input: s = "rat", t = "car"
