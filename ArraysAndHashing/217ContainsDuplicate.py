@@ -27,3 +27,14 @@ testThree = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2]
 print(containsDuplicate(testOne))
 print(containsDuplicate(testTwo))
 print(containsDuplicate(testThree))
+
+"""
+Code explanation: Using a hashset to keep track of unique elements found in our input,
+Since a hashset data structure does not take into account duplicates, we will iterate
+through our input list, and add to the hashset if the element does not already exist
+within the hashset. Once the entire input has been iterated through, and our hashset
+is populated, we then compare the lenths of the hashet and our input list. If the
+list and hashset have the same length, then that means that there was no duplicates.
+found. Therefore, return FALSE. If the hashset and list have different lengths, then 
+that means that there was a duplicate found. Therefore, return TRUE
+"""
