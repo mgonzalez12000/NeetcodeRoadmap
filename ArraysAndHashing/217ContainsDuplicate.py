@@ -12,6 +12,10 @@ Example 3: input: nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2]
 # https://leetcode.com/problems/contains-duplicate/
 
 def containsDuplicate(nums):
+    """
+    :type nums: List[int]
+    :rtype: bool
+    """
     hashSet = set()
     for i in range(len(nums)):
         if nums[i] not in hashSet:
