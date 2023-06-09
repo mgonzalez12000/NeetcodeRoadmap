@@ -37,10 +37,6 @@ test2 = [""]
 print(groupAnagrams(test))
 print(groupAnagrams(test2))
 
-practice = ['test']
-result_practice = str(practice)
-print(result_practice)
-
 """
 Code explanation: The main goal for this question is to put all common anagram into a "group" or a list.
 The finnal result will be 2d list. From problem 242 we know that an anagram is word that is made from it's
