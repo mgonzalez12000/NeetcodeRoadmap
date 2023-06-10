@@ -6,64 +6,38 @@ Example 1: input: nums = [100, 4, 200, 1, 3, 2]
            output: 4
 Example 2: input: nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
            output: 9
-
-           in progress............
 """
+# https://leetcode.com/problems/longest-consecutive-sequence/
 
 
-# def longestConsecutive(nums):
-#     nums = sorted(nums)
-#     left = 0
-#     right = len(nums) - 1
-#     result = []
-#     for i in range(len(nums)):
-#         if nums[i] + 1 == nums[i + 1]:
-#             result.append(nums[i])
-#             result.append(nums[i + 1])
-#     return result
+def longestConsecutive(nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    hash_set = set(nums)
+    longest = 0
+    counter = 0
+    for i in range(len(nums)):
+        if nums[i] - 1 not in hash_set:
+            counter = 1
+            while nums[i] + counter in hash_set:
+                counter += 1
+            longest = max(longest, counter)
+    return longest
 
 
-# def longestConsecutive(nums):
-#     hm = {}
-#     result = []
-#     nums = sorted(nums)
-#     left = 0
-#     right = len(nums) - 1
-#     while left <= right:
-#         if nums[left] + 1 == nums[left + 1]:
-#             result.append(nums[left])
-#             result.append(nums[left + 1])
-#         elif nums[left] + 1 == None:
-#             break
-#         left += 1
-#     return result
+test1 = [100, 4, 200, 1, 3, 2]
+test2 = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
+print(longestConsecutive(test1))
+print(longestConsecutive(test2))
 
-
-# [100, 4, 200, 1, 3, 2]
-# [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
-nums = [9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6]
-print("original nums")
-print(nums)
-print()
-# sorting list
-nums = sorted(nums)
-print("sorted nums")
-print(nums)
-print()
-# add to dict
-dict = {}
-for i in range(len(nums)):
-    if nums[i] not in dict:
-        dict[nums[i]] = 1
-    else:
-        dict[nums[i]] += 1
-print("dictionary")
-print(dict)
-print()
-tracker = []
-for key, value in dict.items():
-    if (key in dict and key + 1 in dict) or (key in dict and key - 1 in dict):
-        tracker.append(key)
-print("tracker")
-print(tracker)
-print(len(tracker))
+"""
+Code explanation: A sequence is when the ints are in order with increments by one.
+We are going to use a hashset data structure to "back track" and check whether
+our current element, upon iteration, is in a sequence. Upon every iteration we
+will check if the previous element exists in our hashset. If it does not, it means
+we are at the start of a sequence adn therefore set our counter at 1. 
+We then use a while loop to back track to our hashset and see if the "next" element 
+is in our hashset, if so, we increase our counter. Then we check for the mac tracker.
+"""
