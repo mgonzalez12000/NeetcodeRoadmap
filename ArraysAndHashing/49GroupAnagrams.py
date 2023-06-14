@@ -12,6 +12,7 @@ Example 2: Input: strs = [""]
 """
 # https://leetcode.com/problems/group-anagrams/
 
+
 def groupAnagrams(strs):
     """
     :type strs: List[str]
@@ -22,15 +23,16 @@ def groupAnagrams(strs):
     result = []
     for i in range(len(strs)):
         sorting = sorted(strs[i])
-        sortedStr = str(sorted(sorting))
+        sortedStr = str(sorting)
         if sortedStr not in hm:
             hm[sortedStr] = groupIndex
             groupIndex += 1
             result.append([strs[i]])
         else:
             index = hm[sortedStr]
-            result[index].append(strs[i]) 
+            result[index].append(strs[i])
     return result
+
 
 test = ["eat", "tea", "tan", "ate", "nat", "bat"]
 test2 = [""]
