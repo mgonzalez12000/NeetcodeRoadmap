@@ -33,36 +33,44 @@ Explanation: ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
 = 22
 """
 
-nums = ["4", "13", "5", "/", "+"]
-stack = []
-for i in range(len(nums)):
-    if nums[i] == "+":
-        tracker = 0
-        for i in range(len(stack) - 2, len(stack)):
-            tracker += stack.pop()
-        stack.append(tracker)
-    elif nums[i] == "-":
-        tracker = 0
-        for i in range(2):
-            tracker -= stack.pop()
-        stack.append(tracker)
-    elif nums[i] == "*":
-        tracker = 1
-        for i in range(len(stack) - 2, len(stack)):
-            tracker *= stack.pop()
-        stack.append(tracker)
+nums = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
 
-    elif nums[i] == "/":
-        for i in range(len(stack) - 2, len(stack)):
-            tracker = stack.pop() / stack.pop()
-        stack.append(tracker)
 
-    else:
-        stack.append(int(nums[i]))
-print(stack)
+def evalRPN(nums):
+    stack = []
+    temp = []
+    count = 0
+    for i in range(len(nums)):
+        if nums[i] == "+":
+            temp.append(stack.pop())
+            temp.append(stack.pop())
+            count = temp.pop() + temp.pop()
+            stack.append(count)
+            print('after adding into stack', stack)
+        elif nums[i] == "-":
+            temp.append(stack.pop())
+            temp.append(stack.pop())
+            count = temp.pop() - temp.pop()
+            stack.append(count)
+            print('after subtracting from stack', stack)
+        elif nums[i] == "*":
+            temp.append(stack.pop())
+            temp.append(stack.pop())
+            count = temp.pop() * temp.pop()
+            stack.append(count)
+            print('after multiplying from stack', stack)
+        elif nums[i] == "/":
+            temp.append(stack.pop())
+            temp.append(stack.pop())
+            count = temp.pop() / temp.pop()
+            count = int(count)
+            stack.append(count)
+            print('after dividing from stack', stack)
+        else:
+            stack.append(int(nums[i]))
+            print('after inserting into stack', stack)
+    return count
 
-# stack = [4, 3]
-# result = 0
-# for i in range(len(stack)):
-#     result += stack.pop()
-# print(result)
+print(evalRPN(nums))
+
+
