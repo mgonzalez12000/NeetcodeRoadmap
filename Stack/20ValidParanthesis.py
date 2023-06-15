@@ -22,7 +22,7 @@ def isValid(s):
     :type s: str
     :rtype: bool
     """
-    result = ""
+
     dict = {")": "(", "]": "[", "}": "{"}
     stack = []
     for i in range(len(s)):
