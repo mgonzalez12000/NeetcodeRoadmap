@@ -12,27 +12,31 @@ Example 3:
 Input: temperatures = [30,60,90]
 Output: [1,1,0]
 """
+# https://leetcode.com/problems/daily-temperatures/solutions/2923400/python-accepted/
 
 
-# def dailyTemperatures(temperatures):
-#     stack = []
-#     answer = []
-#     for i in range(len(temperatures)):
-#         currTemp = temperatures[i]
-#         while currTemp < temperatures[i + 1]:
+def dailyTemperatures(temperatures):
+    """
+    :type temperatures: List[int]
+    :rtype: List[int]
+    """
+    stack = []
+    answer = [0] * len(temperatures)
+    for i in range(len(temperatures)):
+        while len(stack) != 0 and temperatures[stack[-1]] < temperatures[i]:
+            curr = stack.pop()
+            answer[curr] = i - curr
+        stack.append(i)
+    return answer
 
-temperatures = [1, 2, 3, 1, 4]
-answer = []
-stack = []
-for i in range(len(temperatures)):
-    currTemp = temperatures[i]
-    j = 0
-    count = 0
-    while j <= len(temperatures) and len(stack) == 0:
-        if i != j and currTemp < temperatures[j]:
-            count += 1
-            stack.append(count)
-            print(stack)
-        j += 1
-    answer.append(stack.pop())
-    print(answer)
+
+input1 = [73, 74, 75, 71, 69, 72, 76, 73]
+input2 = [30, 40, 50, 60]
+input3 = [30, 60, 90]
+print(dailyTemperatures(input1))
+print(dailyTemperatures(input2))
+print(dailyTemperatures(input3))
+
+"""
+Code explanation: to be written
+"""
