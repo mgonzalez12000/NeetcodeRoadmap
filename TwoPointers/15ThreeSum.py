@@ -58,5 +58,15 @@ print(threeSum(nums3))
 
 
 """
-Code explanation:
+Code explanation: In order to understand this question, I recommend 
+fully understanding TwoSum and TwoSumII, and review pointers with a
+strong understanding.
+
+Use a for loop to iterate through the input array, while having a left
+pointer and right pointer. Use the similar technique/pattern used in TwoSum
+(shifting pointers sum < target, sum > target)
+
+Shift left pointer at the end of each iteration of the for loop and then
+check if the new element (after shifting left pointer) is the same as the
+previos element. If so, shift the left pointer once again.
 """
