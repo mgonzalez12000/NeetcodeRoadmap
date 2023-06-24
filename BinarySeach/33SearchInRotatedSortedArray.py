@@ -31,24 +31,15 @@ def search(nums, target):
     left = 0
     right = len(nums) - 1
     while left <= right:
-        if nums[left] < nums[right]:
-            if nums[middle] < target:
-                left = middle + 1
-            elif nums[middle] > target:
-                right = middle - 1
-            else:
-                return middle
-        middle = (left + right) // 2
-        if nums[middle] >= nums[left]:
+        middle = (left + right) / 2
+
+        # base case
+        if nums[middle] == target:
+            return middle
+        # Left side of rotation
+        if nums[left] <= nums[middle]:
             left = middle + 1
+        # Right side of rotation
         else:
             right = middle - 1
-
-
-n1, t1 = [4, 5, 6, 7, 0, 1, 2], 0
-n2, t2 = [4, 5, 6, 7, 0, 1, 2], 3
-n3, t3 = [1], 0
-
-print(search(n1, t1))
-print(search(n2, t2))
-print(search(n3, t3))
+        

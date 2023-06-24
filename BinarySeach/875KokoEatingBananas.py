@@ -43,10 +43,15 @@ def minEatingSeed(piles, h):
 
 p1, h1 = [3, 6, 7, 11], 8
 p2, h2 = [30, 11, 23, 4, 20], 5
+p3, h3 = [30,11,23,4,20], 6
 print(minEatingSeed(p1, h1))
 print(minEatingSeed(p2, h2))
+print(minEatingSeed(p3, h3))
 
 
 """
-Code explanation: 
+Code explanation: implement your typical binary search algorithm with three pointers, left, right, and middle, where our nmiddle represents
+our speed of eating bananas/hour. However, if koko is able to eat bananas in time before the h amount of hours given, we will shift our 
+right pointer -1 from the middle, to check if we can get a smaller middle value (speed). We will keep tracking our minimum possible 
+result by using the min() trcik in python = min(arg1, arg2)
 """

@@ -45,7 +45,7 @@ def findMin(nums):
             break
         middle = (left + right) // 2
         result = min(result, nums[middle])
-        if nums[middle] >= nums[left]:
+        if nums[left] <= nums[middle]:
             left = middle + 1
         else:
             right = middle - 1
