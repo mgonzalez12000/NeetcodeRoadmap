@@ -25,3 +25,26 @@ def lengthOfLongestSubstring(s):
     :type s: str
     :rtype: int
     """
+    left = 0
+    checker = set()
+    maxchecker = 0
+    for i in range(len(s)):
+        while s[i] in checker:
+            checker.remove(s[left])
+            left += 1
+        checker.add(s[i])
+        maxchecker = max(maxchecker, i - left + 1)
+    return maxchecker
+
+s1 = "abcabcbb"
+s2 = "bbbbb"
+s3 = "pwwkew"
+
+print(lengthOfLongestSubstring(s1))
+print(lengthOfLongestSubstring(s2))
+print(lengthOfLongestSubstring(s3))
+
+
+"""
+Code explanation: 
+"""
