@@ -16,28 +16,24 @@ public class Node{
         this.data = data;
     }
 
-    void Linkedlist (){
-        // in order to populate our linkedlist in a way such that it reflects:
-        // 6 -> 3 -> 4 -> 4 -> 2 -> 1
-        // we need to instantiate our Node class
-        Node nodeA = new Node(6);
-        Node nodeB = new Node(3);
-        Node nodeC = new Node(4);
-        Node nodeD = new Node(2);
-        Node nodeE = new Node(1);
-
-        nodeA.next = nodeB;
-        nodeB.next = nodeC;
-        nodeC.next = nodeD;
-        nodeD.next = nodeE;
+    void appendToTail(int data){
+        Node end = new Node(data);
+        Node n = this;
+        while (n.next != null){
+            n = n.next;
+        }
+        n.next = end;
     }
 }
 
-/* Knowledge to know abotu Linkedlist
+/* Knowledge to know about Linkedlist
  * A LinkedList data structure can ve really expensive becuase when comparing
  * because a LL is a "chain". Comparing it to an array, if you want to grav an
  * elemenet, an array automatically points to it's index. However, whith a LL
- * it HAS to go through the entire chain to retrieve such data
+ * it HAS to go through the entire chain to retrieve such data.
+ * 
+ * When discussing about linkedlists in an interview, make sure you understand whether,
+ * it is a single linkedlist or double linked list.
  */
 
 
