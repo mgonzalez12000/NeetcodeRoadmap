@@ -18,6 +18,8 @@ Example 3:
 Input: list1 = [], list2 = [0]
 Output: [0]
 """
+# https://leetcode.com/problems/merge-two-sorted-lists/
+
 
 # Definition for singly-linked list.
 class ListNode(object):
@@ -47,3 +49,7 @@ class ListNode(object):
             tail.next = list2
         return dummy.next
     
+
+    """
+    Code explanation: tbd
+    """
