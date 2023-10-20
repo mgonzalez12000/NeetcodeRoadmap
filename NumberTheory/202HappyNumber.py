@@ -27,20 +27,21 @@ Output: false
 
 
 def isHappy(n):
-    str_num = str(n)
-    sum = 0
-    for i in range(len(str_num)):
-        sum += int(str_num[i]) ** 2
-    while sum > 1:
-        str_sum = str(sum)
-        sum = 0
-        for i in range(len(str_sum)):
-            sum += int(str_sum[i]) ** 2
-        print(sum)
+    while len(str(n)) > 1:
+        count = 0
+        for x in str(n):
+            count += int(x) ** 2
+        n = count
+
+    if n != 1 and n != 7:
+        return False
+    else:
+        return True
 
 
 t1 = 19
 t2 = 2
 
 
+print(isHappy(t1))
 print(isHappy(t2))
