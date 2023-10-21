@@ -32,7 +32,6 @@ def isHappy(n):
         for x in str(n):
             count += int(x) ** 2
         n = count
-
     if n != 1 and n != 7:
         return False
     else:
