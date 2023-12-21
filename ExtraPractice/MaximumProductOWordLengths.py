@@ -20,7 +20,26 @@ Explanation: No such pair of words.
 """
 
 
-def maxProduct(words):
+def solution(words):
+    # get unique items from input lst
+    lst_sort_words = []
+    for i in range(len(words)):
+        lst_sort_words.append(sorted(words[i]))
+    return lst_sort_words
+    # lst_lengths = []
+    # # add the lenths of each element in the input list to an array
+    # for i in range(len(words)):
+    #     lst_lengths.append(len(words[i]))
+    # hm = {}
+    # # keep track of how many times each length occurs for each word
+    # for i in range(len(lst_lengths)):
+    #     if lst_lengths[i] not in hm:
+    #         hm[lst_lengths[i]] = 1
+    #     else:
+    #         hm[lst_lengths[i]] += 1
+
+
+def maxProductTest(words):
     for i in range(0, len(words)):
         hs = set()
         tracker = 0
@@ -43,4 +62,5 @@ t2 = ["a", "ab", "abc", "d", "cd", "bcd", "abcd"]
 t3 = ["a", "aa", "aaa", "aaaa"]
 
 
-print(maxProduct(t1))
+print("This is the solution in test:", solution(t1))
+print(maxProductTest(t1))
