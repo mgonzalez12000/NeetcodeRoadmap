@@ -45,4 +45,4 @@ def groupAnagram(strs):
         final_answer.append(value)
     return final_answer
 
-print(groupAnagram(strs))
+# print(groupAnagram(strs))
