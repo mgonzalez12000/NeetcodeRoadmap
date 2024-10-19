@@ -43,4 +43,4 @@ def twoSum (nums, target):
         else:
             return [hm[num_bro], i]
         
-print(twoSum(nums3, target3))
+# print(twoSum(nums3, target3))
